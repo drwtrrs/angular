@@ -1,0 +1,44 @@
+<h2>Contacts Information</h2>
+<p>
+  Your list of contacts appear here. To add a new contact, click on the Add New
+  Contact button.
+</p>
+<button mat-raised-button color="accent">Add New Contact</button>
+
+<table mat-table [dataSource]="contacts" class="mat-elevation-z8">
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let contact">{{ contact.name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="contactNumber">
+    <th mat-header-cell *matHeaderCellDef>Contact Number</th>
+    <td mat-cell *matCellDef="let contact">{{ contact.contactNumber }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef>Email Address</th>
+    <td mat-cell *matCellDef="let contact">{{ contact.email }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>Actions</th>
+    <td mat-cell *matCellDef="let contact">
+      <button mat-icon-button (click)="editContact(contact)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="deleteContact(contact.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr
+    mat-header-row
+    *matHeaderRowDef="['name', 'contactNumber', 'email', 'actions']"
+  ></tr>
+  <tr
+    mat-row
+    *matRowDef="let row; columns: ['name', 'contactNumber', 'email', 'actions']"
+  ></tr>
+</table>

@@ -1,0 +1,10 @@
+{
+  "contacts": [
+    {
+      "id": 1,
+      "name": "Jay Contreras",
+      "contactNumber": "0917-123-4567",
+      "email": "kamikazegood@gmail.com"
+    }
+  ]
+}
